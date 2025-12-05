@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useRef } from "react";
 import { Menu, X } from "lucide-react";
-import Chat from "@/global/chat";
+import Chatbot from "@/global/chatbot";
 import { Typewriter } from "react-simple-typewriter";
 import { motion } from "framer-motion";
 import { Card, CardDescription, CardFooter, CardTitle } from "@/components/ui/card";
 import BackgroundParticles from "../components/style/bgparticles";
 import Humanize from "../assets/humanize.jpg"
-import Chatbot from "../assets/Chatbot.jpg";
+import Chat from "../assets/Chatbot.jpg";
 import Instant from "../assets/instant.jpg";
 import Observer from "../components/style/observer";
 import Tool from "../assets/Tools.jpg";
@@ -230,7 +230,7 @@ const Mainpage = () => {
                                     <Observer>
                                         <div className="w-full max-w-sm bg-black border-b border-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl hover:shadow-amber-100  transition-transform transform hover:-translate-y-2 ">
                                             <img
-                                                src={Chatbot}
+                                                src={Chat}
                                                 alt="Custom Tone"
                                                 className="w-full h-48 object-cover"
                                             />
@@ -298,7 +298,6 @@ const Mainpage = () => {
                                                 <i className="fas fa-check text-green-500 mr-2"></i>
                                                 <p>Ai-code Assistance Up To 10 times/day</p>
                                             </div>
-                                            
                                         </CardFooter>
                                     </Card>
                                     <Card className="border-b p-3 w-full bg-black border-white hover:shadow-[0_0_10px_0_white]">
@@ -384,7 +383,7 @@ const Mainpage = () => {
                         </div>
                     </Observer>
                 </footer>
-                <Chat
+                <Chatbot
                     scrollToSection={Ref}
                     sectionRefs={{ home, About, Features, Pricing }}
                 />

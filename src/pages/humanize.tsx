@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import { type decodedtoken } from "@/components/props/props";
-const Humanize = () => {
 
+const Humanize = () => {
    const [content, setcontent] = useState<string>("");
    const [warning, setwarning] = useState<string>("");
    const [bool, setbool] = useState<boolean>();
