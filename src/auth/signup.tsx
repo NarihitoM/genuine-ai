@@ -81,11 +81,9 @@ const Signup = () => {
                     userpassword: password,
                 });
                 if (response.data && response.data.success) {
-                    setmessage(response.data.messsage || "Sign Up Successful");
-                    setTimeout(() => {
-                        navigate("/login");
-                        setmessage("");
-                    }, 3000);
+                    localStorage.setItem("email", response.data.email);
+                    navigate("/confirmemail");
+                    setmessage("");
                 }
                 else {
                     setmessage(response.data.message);

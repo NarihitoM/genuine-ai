@@ -9,6 +9,8 @@ import Mainrenderpage from "./pages/mainrenderpage"
 import Aichatbot from "./pages/aichatcode"
 import Menu from "./pages/menu";
 import Userinfo from "./auth/userinfo"
+import Confirm from "./auth/confirmemail"
+import Protectedemailverify from "./routes/protectedemailverify"
 function App() {
   return (
     <>
@@ -18,8 +20,10 @@ function App() {
           <Route path="/signin" element={<Signup/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/password" element={<Forgot/>}/>
+          <Route path="/confirmemail" element={<Protectedemailverify><Confirm/></Protectedemailverify>}/>
           <Route path="/userinfo" element={<Protectedroute><Userinfo/></Protectedroute>} />
           <Route path="/" element={<Mainrenderpage/>}>
+
             <Route path="/playground" element={<Protectedroute><Menu/></Protectedroute>} />
             <Route path="/humanize" element={<Protectedroute><Humanize/></Protectedroute>} />
             <Route path="/chatcode" element={<Protectedroute><Aichatbot/></Protectedroute>} />

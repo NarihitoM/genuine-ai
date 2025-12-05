@@ -1,6 +1,6 @@
 import BackgroundParticles from "@/components/style/bgparticles";
 import { motion } from "framer-motion";
-import { useEffect, useState, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { Card, CardDescription, CardFooter, CardTitle } from "@/components/ui/card";
 import { jwtDecode } from "jwt-decode";
