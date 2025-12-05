@@ -65,7 +65,6 @@ const Mainpage = () => {
                                     {button &&
                                         <div className="absolute py-5 px-2 rounded-lg flex gap-3 flex-col bg-white/5 top-15 left-2 h-auto w-auto">
                                             <button onClick={() => navigate("/userinfo")} className="active:translate-y-1 border p-1 rounded-lg border-white bg-black text-white w-[130px]">Profile</button>
-                                            <button onClick={() => navigate("/changepf")} className="active:translate-y-1 border p-1 rounded-lg border-white bg-black text-white w-[130px]">Change Photo</button>
                                         </div>
                                     }
                                 </div>
@@ -323,7 +322,7 @@ const Mainpage = () => {
                                                     </button>) : (<button className="w-full bg-purple-700 text-white active:translate-y-1 p-2 rounded-lg">
                                                            Upgrade to premium.
                                                     </button>)) :
-                                                (<button className="w-full  bg-purple-700 text-white active:translate-y-1 p-2 rounded-lg">
+                                                (<button onClick={() => navigate("/login")} className="w-full  bg-purple-700 text-white active:translate-y-1 p-2 rounded-lg">
                                                            Upgrade to premium.
                                                     </button>
                                                 )}
