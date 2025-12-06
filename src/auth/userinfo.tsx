@@ -5,7 +5,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { Card, CardDescription, CardFooter, CardTitle } from "@/components/ui/card";
 import { jwtDecode } from "jwt-decode";
 import { type decodedtoken } from "@/components/props/props";
-import axios from "axios";
+import { changeusername, Deleteuser } from "@/services/api";
 
 const Userinfo = () => {
     const [message, setmessaage] = useState<string>("");
@@ -26,14 +26,9 @@ const Userinfo = () => {
             setmessaage("Username must not be greater than 8.")
         }
         else {
-
             try {
-                const response = await axios.post("http://localhost:5000/api/changeusername", {
-                    id: userinfo?.id,
-                    username: username,
-                    useremail: useremail,
-                });
-                if (response.data && response.data.success) {
+                const result = await changeusername(userinfo?.id,username,useremail);
+                if (result && result.success) {
                     setmessaage("Update successful");
                     setbool(true);
                     setTimeout(() => {
@@ -42,7 +37,7 @@ const Userinfo = () => {
                 }
             }
             catch (err: any) {
-                setmessaage(err?.response?.data.message || "Unexpected Error");
+                setmessaage(err?.result?.message || "Unexpected Error");
                 setTimeout(() => {
                     setmessaage("");
                 }, 3000);
@@ -56,12 +51,9 @@ const Userinfo = () => {
     }
     const deleteuser = async () => {
         try {
-            const response = await axios.post("http://localhost:5000/api/deleteuser", {
-                id: userinfo?.id
-
-            });
-            if (response.data && response.data.success) {
-                setmessaage(response.data.message || "Delete Successful");
+            const result = await Deleteuser(userinfo?.id);
+            if (result && result.success) {
+                setmessaage(result.message || "Delete Successful");
                 setwarning((prev) => !prev);
                 setTimeout(() => {
                     setmessaage("");
@@ -72,7 +64,7 @@ const Userinfo = () => {
             }
         }
         catch (err: any) {
-            setmessaage(err?.response.data.message || "Unexpected Error");
+            setmessaage(err?.response?.data?.message || "Unexpected Error");
             setTimeout(() => {
                 setmessaage("");
             }, 3000);

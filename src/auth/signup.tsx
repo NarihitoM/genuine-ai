@@ -3,7 +3,7 @@ import { Card, CardDescription, CardFooter, CardTitle } from "@/components/ui/ca
 import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import { NavLink, useNavigate } from "react-router-dom";
-import axios from "axios";
+import { signup } from "@/services/api";
 
 const Signup = () => {
     const [username, setusername] = useState<string>("");
@@ -13,6 +13,7 @@ const Signup = () => {
     const [message, setmessage] = useState<string>("");
     const [bool, setbool] = useState<boolean>(true);
     const [bool1, setbool1] = useState<boolean>(true);
+     const [loading,setloading] = useState<boolean>();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     const navigate = useNavigate();
@@ -74,26 +75,27 @@ const Signup = () => {
             return;
         }
         else {
+            setloading(true);
+            setTimeout(() => {
+                setloading(false);
+            }, 3000);
+            setmessage("Authenticating...")
             try {
-                const response = await axios.post("http://localhost:5000/api/signup", {
-                    username: username,
-                    useremail: email,
-                    userpassword: password,
-                });
-                if (response.data && response.data.success) {
-                    localStorage.setItem("email", response.data.email);
+                const result = await signup(username,email,password);
+                if (result && result.success) {
+                    localStorage.setItem("email", result.email);
                     navigate("/confirmemail");
                     setmessage("");
                 }
                 else {
-                    setmessage(response.data.message);
+                    setmessage(result.message);
                     setTimeout(() => {
                         setmessage("");
                     }, 3000);
                 }
             }
             catch (err: any) {
-                setmessage(err?.response?.data.message || "Unexpected Error");
+                setmessage(err?.response?.data?.message || "Unexpected Error");
                 setTimeout(() => {
                     setmessage("");
                 }, 3000);
@@ -136,7 +138,7 @@ const Signup = () => {
                                 <i onClick={eyetoggle1} className={`absolute right-2 top-3 fa-solid  ${bool1 ? "fa-eye-slash" : "fa-eye"}`}></i>
                             </div>
                             {message && <p className={`${message === "Sign Up Successful" ? "text-green-600" : "text-red-600"}`}>{message}</p>}
-                            <button className="bg-white p-1 rounded-lg active:translate-y-1 text-black">Sign Up</button>
+                            <button type="submit" disabled={loading} className="bg-white p-1 rounded-lg active:translate-y-1 text-black">Sign Up</button>
                             <NavLink to="/" className="active:translate-y-1 text-center text-[14px] text-black p-1 rounded-lg bg-white">
                                 Back
                             </NavLink>

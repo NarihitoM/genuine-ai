@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import { X } from "lucide-react";
 import { motion } from "framer-motion";
-import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import { type decodedtoken } from "@/components/props/props";
+import { humanize } from "@/services/chatapi";
 
 const Humanize = () => {
    const [content, setcontent] = useState<string>("");
@@ -26,7 +26,6 @@ const Humanize = () => {
        settogglepopup((prev) => !prev);
    }
    const sendtext = async () => {
-      
       setdisplayed(true);
       setTimeout(() => {
          setdisplayed(false);
@@ -48,13 +47,11 @@ const Humanize = () => {
       else {
          setloading(true);
          try {
-            const response = await axios.post("http://localhost:4000/api/humanize",
-               {
-                  textcontent: content,
-                  id : userinfo?.id,
-               });
-            if (response.data && response.data.success) {
-               const action = response.data.action;
+            const result = await humanize(content,userinfo?.id);
+
+         
+            if (result && result.success) {
+               const action = result.action;
                const isai = action.ai;
                const isaimessage = action.text;
                settogglepopup(true);
@@ -66,7 +63,7 @@ const Humanize = () => {
          catch (err: any) {
             settogglepopup(false);
             setbool(true);
-            setwarning(err?.response?.data.message || "Unexpected Error");
+            setwarning(err?.response?.data?.message || "Unexpected Error");
             setloading(false);
             setTimeout(() => {
                setbool(false);

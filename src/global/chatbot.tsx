@@ -1,9 +1,9 @@
 import type { message } from "@/components/props/props";
 import { useEffect, useRef, useState } from "react";
-import axios from "axios";
 import { X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Outlet } from "react-router-dom";
+import { chatbot } from "@/services/chatapi";
 
 interface ChatProps {
     scrollToSection?: (ref: React.RefObject<HTMLElement | null>) => void; // void function 
@@ -32,10 +32,8 @@ const Chat: React.FC<ChatProps> = ({ scrollToSection, sectionRefs }) => {
         setloading(true);
         setmessage(prev => [...prev, { sender: "ai", message: "Thinking...", loading: true }]);
         try {
-            const response = await axios.post("http://localhost:4000/api/chatmessage", {
-                message: usermessage
-            });
-            const action = response.data.action;
+            const result = await chatbot(usermessage);
+            const action = result.action;
             if (action) {
                 if (action.action === "navigate" && action.path) {
                     const sectionRef = sectionRefs?.[action.path];
@@ -68,10 +66,10 @@ const Chat: React.FC<ChatProps> = ({ scrollToSection, sectionRefs }) => {
                     ]);
                 }
             }
-            if (response.data && response.data.success) {
+            if (result && result.success) {
                 setmessage(prev =>
                     prev.map(msg =>
-                        msg.loading ? { sender: "ai", message: response.data.message } : msg
+                        msg.loading ? { sender: "ai", message: result.message } : msg
                     )
                 );
                 setloading(false);
@@ -80,7 +78,7 @@ const Chat: React.FC<ChatProps> = ({ scrollToSection, sectionRefs }) => {
         catch (err: any) {
             setmessage(prev =>
                 prev.map(msg =>
-                    msg.loading ? { sender: "ai", message: err?.response?.data.message || "Unexpected Error" } : msg
+                    msg.loading ? { sender: "ai", message: err?.response?.data?.message || "Unexpected Error" } : msg
                 )
             );
             setloading(false);

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { X } from "lucide-react";
-import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import { type decodedtoken } from "@/components/props/props";
+import { chatcode } from "@/services/chatapi";
 const Aichatcode = () => {
     const [content, setcontent] = useState<string>("");
     const [aicontent, setaicontent] = useState<string>("");
@@ -24,19 +24,16 @@ const Aichatcode = () => {
         else {
                 setloading(true);
                 try {
-                    const response = await axios.post("http://localhost:4000/api/chatcode", {
-                        textcontent: content,
-                        id : userinfo?.id
-                    });
-                    if (response.data.success && response.data) {
-                        const action = response.data.action;
+                    const result = await chatcode(content,userinfo?.id);
+                    if (result.success && result) {
+                        const action = result.action;
                         setaicontent(action.code);
                         setloading(false);
                     }
                 }
                 catch (err: any) {
                     setbool(true);
-                    setwarning(err?.response?.data.message || "Unexpected Error");
+                    setwarning(err?.response?.data?.message || "Unexpected Error");
                     setloading(false);
                     setTimeout(() => {
                         setbool(false);

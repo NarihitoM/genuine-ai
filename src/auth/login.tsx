@@ -3,7 +3,7 @@ import { Card, CardDescription, CardFooter, CardTitle } from "@/components/ui/ca
 import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import { NavLink, useNavigate } from "react-router-dom";
-import axios from "axios";
+import { login } from "@/services/api";
 
 const Login = () => {
     const [email, setemail] = useState<string>("");
@@ -39,14 +39,12 @@ const Login = () => {
             return;
         }
         else {
+            setmessage("Authenticating...");
             try {
-                const response = await axios.post("http://localhost:5000/api/login", {
-                    useremail: email,
-                    userpassword: password,
-                })
-                if (response.data && response.data.success) {
-                    setmessage(response.data.message || "Log in success");
-                    const token = response.data.newtoken;
+              const result = await login(email,password);
+                if (result && result.success) {
+                    setmessage(result.message || "Log in success");
+                    const token = result.newtoken;
                     localStorage.setItem("token", token);
                     localStorage.setItem("userin", JSON.stringify(false));
                     setTimeout(() => {
@@ -55,14 +53,14 @@ const Login = () => {
                     }, 3000);
                 }
                 else {
-                    setmessage(response.data.message);
+                    setmessage(result.message);
                     setTimeout(() => {
                         setmessage("");
                     }, 3000);
                 }
             }
             catch (err: any) {
-                setmessage(err?.response?.data.message || "Unexpected Error");
+                setmessage(err?.response?.data?.message || "Unexpected Error");
                 setTimeout(() => {
                     setmessage("");
                 }, 3000);
