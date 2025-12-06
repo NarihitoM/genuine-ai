@@ -58,11 +58,7 @@ const BackgroundParticles: React.FC = () => {
     }, []);
 
     return (
-        <canvas
-            ref={canvasRef}
-            className="fixed inset-0 -z-10 w-screen h-screen"
-        />
-        
+        <canvas ref={canvasRef} className="fixed inset-0 -z-10 w-screen h-screen"/>
     );
 };
 

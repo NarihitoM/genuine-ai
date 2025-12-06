@@ -6,7 +6,7 @@ type Props = {
 const Protectedemailverify = ({ children }: Props) => {
     const email = localStorage.getItem("email");
     if (!email) {
-        return <Navigate to="/signin" replace></Navigate>
+        return <Navigate to="/signin" replace />
     }
     return children;
 }

@@ -32,6 +32,14 @@ const Signup = () => {
             }, 3000);
             return;
         }
+        else if(username.length > 7)
+        {
+            setmessage("Username must not be greater than 7");
+            setTimeout(() => {
+                setmessage("");
+            }, 3000);
+            return;
+        }
         else if (!email || !emailRegex.test(email)) {
             setmessage("Please Enter Valid Email Address");
             setTimeout(() => {

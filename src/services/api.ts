@@ -19,6 +19,29 @@ export async function signin(email : string | null, code : string) {
     return response.data;
 }
 
+export async function findemail(email : string ) {
+    const response = await axios.post(`${Url}/api/findemail`,{
+        email : email
+    })
+    return response.data;
+}
+
+export async function passwordchange(email : string | null, code : string) {
+    const response = await axios.post(`${Url}/api/pwconfirm`,{
+        email : email,
+        code : code
+    })
+    return response.data;
+}
+
+export async function newpasswordchange(email : string | null, password : string) {
+    const response = await axios.post(`${Url}/api/pwchange`,{
+        email : email,
+        password : password,
+    });
+    return response.data;
+}
+
 export async function resendemail(email : string | null) {
     const response = await axios.post(`${Url}/api/resend`,{
         email : email,

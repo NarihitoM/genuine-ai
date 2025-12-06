@@ -41,7 +41,6 @@ const Aichatcode = () => {
                 }
             }
     }
-
     return (
         <>
             {bool &&
@@ -74,7 +73,7 @@ const Aichatcode = () => {
                     <div className="w-full h-[350px] max-md:h-[250px] border border-white rounded-lg bg-black p-2 flex flex-col items-center gap-3">
                         <textarea style={{ scrollbarWidth: "none" }} readOnly
                             className="flex-1 bg-black text-green-700 placeholder:text-white outline-none w-full resize-none "
-                            placeholder="Results"
+                            placeholder={loading ? "Fixing the code...." : "Results"}
                             value={aicontent}></textarea>
                         <div className="flex flex-row justify-between gap-5">
                             <button onClick={() => navigator.clipboard.writeText(aicontent)} className="bg-white text-black px-4 py-2 rounded-lg shrink-0 flex justify-end active:translate-y-1">

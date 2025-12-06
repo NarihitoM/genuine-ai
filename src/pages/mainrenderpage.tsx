@@ -51,7 +51,7 @@ const Mainrenderpage = () => {
                             <h1 onClick={() => buttontoggle((prev) => !prev)} className="text-blue-600 font-bold">{userinfo?.username}</h1>
                             <button className="p-1.5 border-black border bg-red-600 flex gap-1 justify-center items-center rounded-lg text-white text-[14px]" onClick={logout}>Sign out</button>
                             {button &&
-                                <div className="absolute py-5 px-2 rounded-lg flex gap-3 flex-col bg-white/5 top-15 left-2 h-auto w-auto">
+                                <div className="absolute py-5 px-2 rounded-lg flex gap-3 flex-col bg-white/5 top-15 -left-2 h-auto w-auto">
                                     <button onClick={() => navigate("/userinfo")} className="active:translate-y-1 border p-1 rounded-lg border-white bg-black text-white w-[130px]">Profile</button>
                                 </div>
                             }
@@ -73,11 +73,11 @@ const Mainrenderpage = () => {
                                     isActive ? "text-white font-bold text-[14px]" : "text-white text-[14px]"
                                 }>ChatCode</NavLink>
 
-                                <div className="flex justify-center border border-gray-600 py-2 px-2 rounded-lg items-center flex-col gap-2 relative">
+                                <div className="flex justify-center  py-2 px-2 rounded-lg items-center flex-col gap-2 relative">
                                     <p onClick={() => buttontoggle((prev) => !prev)} className="text-blue-600 text-[14px] font-bold">{userinfo?.username}</p>
                                     <button className="p-1.5 border border-black bg-red-600 flex gap-1 justify-center items-center rounded-lg text-white text-[14px]" onClick={logout}>Sign out</button>
                                     {button &&
-                                        <div className="absolute py-5 px-2 rounded-lg flex gap-3 flex-col bg-white/5 right-26 h-auto">
+                                        <div className="absolute py-5 px-2 rounded-lg flex gap-3 flex-col bg-white/5 right-24 h-auto">
                                             <button onClick={() => navigate("/userinfo")} className="border p-1 rounded-lg active:translate-y-1 border-white bg-black text-white w-[200px]">Profile</button>
                                         </div>
                                     }
