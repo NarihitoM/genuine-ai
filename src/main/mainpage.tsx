@@ -99,7 +99,7 @@ const Mainpage = () => {
                 </header>
                 <main className="grow">
                     <BackgroundParticles />
-                    <section ref={home} className="relative flex justify-center items-center h-auto w-full overflow-hidden pt-20">
+                    <section ref={home} className="relative flex justify-center items-center h-screen w-full overflow-hidden pt-20">
                         <div className="flex flex-col gap-5 justify-center items-center">
                             <motion.h1
                                 initial={{ opacity: 0, y: 10 }}
@@ -142,7 +142,7 @@ const Mainpage = () => {
                         </div>
                     </section>
 
-                    <section ref={About} className=" relative flex justify-center h-auto w-full overflow-hidden pt-20">
+                    <section ref={About} className="relative flex justify-center h-auto w-full overflow-hidden pt-20">
                         <Observer>
                             <h1 className="text-white text-5xl text-center max-md:text-3xl">About Us</h1>
                             <Observer>
