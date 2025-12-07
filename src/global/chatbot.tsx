@@ -104,7 +104,7 @@ const Chat: React.FC<ChatProps> = ({ scrollToSection, sectionRefs }) => {
                                 {message.map((element, index) => (
                                     <div key={index} className={`flex w-full items-center ${element.sender === "user" ? "justify-end" : "justify-start"}`}>
                                         {element.sender === "ai" ? <h1 className="text-white rounded-full animate-spin">⚙️</h1> : ""}
-                                        <div className={`max-w-[75%] px-4 py-2 rounded-lg text-sm ${element.sender === "user" ?
+                                        <div className={`max-w-[70%] px-4 py-2 rounded-lg text-sm ${element.sender === "user" ?
                                             "bg-white text-black rounded-br-none"
                                             : "bg-white text-black border rounded-bl-none"
                                             }`}>
@@ -124,7 +124,7 @@ const Chat: React.FC<ChatProps> = ({ scrollToSection, sectionRefs }) => {
                                         }
                                     }}
                                     placeholder="Type a message..."
-                                    className="flex-1 px-3  py-2 rounded-xl bg-white/5 border border-white/20 text-white focus:outline-none"
+                                    className="flex-1 px-3 py-2 rounded-xl bg-white/5 border border-white/20 text-white focus:outline-none"
                                 />
                                 <button onClick={sendmessage} className="px-4 py-2 text-[15px] active:translate-y-1 bg-white text-black rounded-xl hover:bg-black hover:text-white transition">
                                     Send
