@@ -94,8 +94,8 @@ const Chat: React.FC<ChatProps> = ({ scrollToSection, sectionRefs }) => {
                 </button>
                 }
                 {toggle &&
-                    <div className="mt-4 bottom-3 right-2 max-md:bottom-3 max-md:right-5 bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-2xl p-4 flex flex-col animate-slide-up">
-                        <div className=" rounded-xl w-100 h-126  max-md:h-80 max-md:w-80 flex flex-col overflow-hidden" >
+                    <div className="fixed mt-4 bottom-3 right-2 max-md:bottom-3 max-md:right-5 bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-2xl p-4 flex flex-col animate-slide-up">
+                        <div className=" rounded-xl w-80 h-80  max-md:h-80 max-md:w-80 flex z-2000 flex-col overflow-hidden" >
                             <div className="flex justify-between items-center border-b border-white/10 pb-2">
                                 <h2 className="text-white font-semibold">Genuine-AI Chatbot</h2>
                                 <button onClick={openmenu} className="text-white text-2xl"><X /></button>
@@ -126,7 +126,7 @@ const Chat: React.FC<ChatProps> = ({ scrollToSection, sectionRefs }) => {
                                     placeholder="Type a message..."
                                     className="flex-1 px-3  py-2 rounded-xl bg-white/5 border border-white/20 text-white focus:outline-none"
                                 />
-                                <button onClick={sendmessage} className="px-4 py-2 text-[15px] bg-white text-black rounded-xl hover:bg-black hover:text-white transition">
+                                <button onClick={sendmessage} className="px-4 py-2 text-[15px] active:translate-y-1 bg-white text-black rounded-xl hover:bg-black hover:text-white transition">
                                     Send
                                 </button>
                             </div>

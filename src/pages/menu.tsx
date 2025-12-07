@@ -8,7 +8,7 @@ const Menu = () => {
                 Welcome To Genuine-Ai Playground.
             </h1>
             <div className="flex flex-col">
-                <p className="text-white text-2xl">Try Our Models.</p>
+                <p className="text-white text-3xl max-md:text-xl">Try Our Models.</p>
 
             </div>
             <div className="flex flex-row gap-5">

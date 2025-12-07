@@ -62,10 +62,10 @@ const Aichatcode = () => {
                             placeholder="Write Code..."
                             value={content} onChange={(e) => setcontent(e.target.value)}></textarea>
                         <div className="flex flex-row justify-between gap-5">
-                            <button onClick={send} className="bg-white text-black px-4 py-2 rounded-lg shrink-0 flex justify-end">
+                            <button onClick={send} className="bg-white active:translate-y-1 text-black px-4 py-2 rounded-lg shrink-0 flex justify-end">
                                 {loading ? <span>Validating...</span> : <span>Check</span>}
                             </button>
-                            <button onClick={() => setcontent("")} className="bg-white text-black px-4 py-2 rounded-lg shrink-0 flex justify-end">
+                            <button onClick={() => setcontent("")} className="bg-white active:translate-y-1 text-black px-4 py-2 rounded-lg shrink-0 flex justify-end">
                                 Delete
                             </button>
                         </div>
@@ -76,10 +76,10 @@ const Aichatcode = () => {
                             placeholder={loading ? "Fixing the code...." : "Results"}
                             value={aicontent}></textarea>
                         <div className="flex flex-row justify-between gap-5">
-                            <button onClick={() => navigator.clipboard.writeText(aicontent)} className="bg-white text-black px-4 py-2 rounded-lg shrink-0 flex justify-end active:translate-y-1">
+                            <button onClick={() => navigator.clipboard.writeText(aicontent)} className="bg-white active:translate-y-1 text-black px-4 py-2 rounded-lg shrink-0 flex justify-end active:translate-y-1">
                                 Copy
                             </button>
-                            <button onClick={() => setaicontent("")} className="bg-white text-black px-4 py-2 rounded-lg shrink-0 flex justify-end">
+                            <button onClick={() => setaicontent("")} className="bg-white text-black active:translate-y-1 px-4 py-2 rounded-lg shrink-0 flex justify-end">
                                 Delete
                             </button>
                         </div>

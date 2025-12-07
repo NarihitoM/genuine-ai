@@ -101,8 +101,8 @@ const Humanize = () => {
                      </textarea>
                   </div>
                   <div className="flex flex-row gap-3 justify-center items-center mt-2">
-                     <button onClick={copytext} className="text-black bg-white p-2 rounded-lg ">Copy</button>
-                     <button onClick={back} className="text-black bg-white p-2 rounded-lg ">Back</button>
+                     <button onClick={copytext} className="text-black active:translate-y-1 bg-white p-2 rounded-lg ">Copy</button>
+                     <button onClick={back} className="text-black active:translate-y-1 bg-white p-2 rounded-lg ">Back</button>
                   </div>
                </motion.div>
             }
@@ -127,7 +127,7 @@ const Humanize = () => {
                   style={{ scrollbarWidth: "none" }}
                   className="bg-transparent border border-white rounded-lg outline-none backdrop-blur-2xl resize-none text-white p-4 w-10/12 h-[200px]"
                />
-               <button disabled={displayed} onClick={sendtext} className="bg-white text-black px-6 py-2 rounded-lg">
+               <button disabled={displayed} onClick={sendtext} className="bg-white active:translate-y-1 text-black px-6 py-2 rounded-lg">
                   {loading ? <span className="text-gray-900">Humanizing...</span> : <span className="text-black">Humanize</span>}
                </button>
             </div>
