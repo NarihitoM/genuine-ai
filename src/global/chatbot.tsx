@@ -102,7 +102,7 @@ const Chat: React.FC<ChatProps> = ({ scrollToSection, sectionRefs }) => {
                             </div>
                             <div className="flex-1 overflow-y-auto py-2 space-y-2" style={{ scrollbarWidth: "none" }}>
                                 {message.map((element, index) => (
-                                    <div key={index} className={`flex w-full items-center ${element.sender === "user" ? "justify-end" : "justify-start"}`}>
+                                    <div key={index} className={`flex items-center ${element.sender === "user" ? "justify-end" : "justify-start"}`}>
                                         {element.sender === "ai" ? <h1 className="text-white rounded-full animate-spin">⚙️</h1> : ""}
                                         <div className={`max-w-[70%] px-4 py-2 rounded-lg text-sm ${element.sender === "user" ?
                                             "bg-white text-black rounded-br-none"
