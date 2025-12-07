@@ -13,7 +13,7 @@ const Signup = () => {
     const [message, setmessage] = useState<string>("");
     const [bool, setbool] = useState<boolean>(true);
     const [bool1, setbool1] = useState<boolean>(true);
-     const [loading,setloading] = useState<boolean>();
+    const [loading, setloading] = useState<boolean>();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     const navigate = useNavigate();
@@ -32,8 +32,7 @@ const Signup = () => {
             }, 3000);
             return;
         }
-        else if(username.length > 7)
-        {
+        else if (username.length > 7) {
             setmessage("Username must not be greater than 7");
             setTimeout(() => {
                 setmessage("");
@@ -89,7 +88,7 @@ const Signup = () => {
             }, 3000);
             setmessage("Authenticating...")
             try {
-                const result = await signup(username,email,password);
+                const result = await signup(username, email, password);
                 if (result && result.success) {
                     localStorage.setItem("email", result.email);
                     navigate("/confirmemail");
@@ -158,6 +157,14 @@ const Signup = () => {
                             </p>
                             <NavLink to="/login" className="font-light text-[14px] text-blue-600">
                                 Login
+                            </NavLink>
+                        </div>
+                        <div className="flex justify-between flex-row">
+                            <p className="text-white font-light text-[14px]">
+                                Forgot password?
+                            </p>
+                            <NavLink to="/passwordrequest" className="font-light text-[14px] text-blue-600">
+                                Find
                             </NavLink>
                         </div>
                         <CardFooter>

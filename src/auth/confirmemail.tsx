@@ -27,6 +27,9 @@ const confirmemail = () => {
         e.preventDefault();
         if (!code) {
             setmessaage("Please Enter Six Digits Code");
+            setTimeout(() => {
+                setmessaage("");
+            }, 3000);
             return;
         }
         else {

@@ -17,6 +17,9 @@ const Forgot = () => {
     e.preventDefault();
     if (!email) {
       setmessaage("Please Enter Email");
+      setTimeout(() => {
+        setmessaage("");
+      }, 3000);
       return;
     }
     else if(!emailRegex.test(email))

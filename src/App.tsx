@@ -15,30 +15,33 @@ import Confirmpassword from "./auth/confirmpassword";
 import Protectedpasswordverify from "./routes/protectedpasswordverify"
 import Protectedchangepassword from "./routes/protectedchangepassword"
 import Changepassword from "./auth/changepassword"
-
+import History from "../src/pages/history";
+import Session from "./session"
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Main />}/>
-          <Route path="/signin" element={<Signup/>}/>
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/password" element={<Forgot/>}/>
-          <Route path="/passwordrequest" element={<Forgot/>}/>
-          <Route path="/passwordverify" element={<Protectedpasswordverify><Confirmpassword/></Protectedpasswordverify>} />
-          <Route path="/passwordchange" element={<Protectedchangepassword><Changepassword/></Protectedchangepassword>} />
-          <Route path="/confirmemail" element={<Protectedemailverify><Confirm/></Protectedemailverify>}/>
-          <Route path="/userinfo" element={<Protectedroute><Userinfo/></Protectedroute>} />
-          <Route path="/" element={<Mainrenderpage/>}>
-            <Route path="/playground" element={<Protectedroute><Menu/></Protectedroute>} />
-            <Route path="/humanize" element={<Protectedroute><Humanize/></Protectedroute>} />
-            <Route path="/chatcode" element={<Protectedroute><Aichatbot/></Protectedroute>} />
-          </Route>
-           <Route path="*" element={<h1 className="text-white">Not Found!</h1>}/>
-        </Routes>
-       
+        <Session>
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/signin" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/password" element={<Forgot />} />
+            <Route path="/passwordrequest" element={<Forgot />} />
+            <Route path="/passwordverify" element={<Protectedpasswordverify><Confirmpassword /></Protectedpasswordverify>} />
+            <Route path="/passwordchange" element={<Protectedchangepassword><Changepassword /></Protectedchangepassword>} />
+            <Route path="/confirmemail" element={<Protectedemailverify><Confirm /></Protectedemailverify>} />
+            <Route path="/userinfo" element={<Protectedroute><Userinfo /></Protectedroute>} />
+            <Route path="/" element={<Mainrenderpage />}>
+              <Route path="/playground" element={<Protectedroute><Menu /></Protectedroute>} />
+              <Route path="/humanize" element={<Protectedroute><Humanize /></Protectedroute>} />
+              <Route path="/chatcode" element={<Protectedroute><Aichatbot /></Protectedroute>} />
+              <Route path="/history" element={<Protectedroute><History /></Protectedroute>} />
+            </Route>
+            <Route path="*" element={<h1 className="text-white">Not Found!</h1>} />
+          </Routes>
+        </Session>
       </BrowserRouter>
     </>
   )

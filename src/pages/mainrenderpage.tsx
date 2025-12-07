@@ -7,7 +7,7 @@ import BackgroundParticles from "@/components/style/bgparticles";
 const Mainrenderpage = () => {
     const [toggle, settoggle] = useState<boolean>();
     const [button, buttontoggle] = useState<boolean>();
-     const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token");
     const userinfo = token ? jwtDecode<decodedtoken>(token) : null;
     const navigate = useNavigate();
     const clicktoggle = () => {
@@ -45,7 +45,9 @@ const Mainrenderpage = () => {
                             <NavLink to={"/chatcode"} className={({ isActive }) =>
                                 isActive ? "text-white font-bold text-[17px]" : "text-white text-[17px]"
                             }>ChatCode</NavLink>
-
+                            <NavLink to={"/history"} className={({ isActive }) =>
+                                isActive ? "text-white font-bold text-[17px]" : "text-white text-[17px]"
+                            }>History</NavLink>
                         </div>
                         <div className="backdrop-blur-lg p-2 border border-gray-600 rounded-lg relative max-md:hidden flex flex-row justify-center items-center gap-3">
                             <h1 onClick={() => buttontoggle((prev) => !prev)} className="text-blue-600 font-bold">{userinfo?.username}</h1>
@@ -72,7 +74,9 @@ const Mainrenderpage = () => {
                                 <NavLink to={"/chatcode"} className={({ isActive }) =>
                                     isActive ? "text-white font-bold text-[14px]" : "text-white text-[14px]"
                                 }>ChatCode</NavLink>
-
+                                <NavLink to={"/history"} className={({ isActive }) =>
+                                    isActive ? "text-white font-bold text-[14px]" : "text-white text-[14px]"
+                                }>History</NavLink>
                                 <div className="flex justify-center  py-2 px-2 rounded-lg items-center flex-col gap-2 relative">
                                     <p onClick={() => buttontoggle((prev) => !prev)} className="text-blue-600 text-[14px] font-bold">{userinfo?.username}</p>
                                     <button className="p-1.5 border border-black bg-red-600 flex gap-1 justify-center items-center rounded-lg text-white text-[14px]" onClick={logout}>Sign out</button>
@@ -87,14 +91,10 @@ const Mainrenderpage = () => {
                         </div>
                     </div>
                 </header>
-                <main className="h-screen flex-1 grow">
+                <main className="h-screen flex-1 mt-auto grow">
                     <Outlet />
                 </main>
-                <footer className="w-full z-1000 mt-10 bg-black border-t border-white/10 p-5 text-white">
-                    <div className="text-center text-gray-500 text-sm">
-                        ©{new Date().getFullYear()} Genuine-AI. All rights reserved.
-                    </div>
-                </footer>
+               
             </div>
         </>
     )

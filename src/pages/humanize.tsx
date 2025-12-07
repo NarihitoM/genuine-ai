@@ -48,8 +48,6 @@ const Humanize = () => {
          setloading(true);
          try {
             const result = await humanize(content,userinfo?.id);
-
-         
             if (result && result.success) {
                const action = result.action;
                const isai = action.ai;
@@ -58,6 +56,7 @@ const Humanize = () => {
                setisai(isai);
                setisaimessage(isaimessage);
                setloading(false);
+               
             }
          }
          catch (err: any) {

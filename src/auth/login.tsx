@@ -46,7 +46,6 @@ const Login = () => {
                     setmessage(result.message || "Log in success");
                     const token = result.newtoken;
                     localStorage.setItem("token", token);
-                    localStorage.setItem("userin", JSON.stringify(false));
                     setTimeout(() => {
                         setmessage("");
                         navigate("/");
@@ -104,6 +103,14 @@ const Login = () => {
                             </p>
                             <NavLink to="/signin" className="font-light text-[14px] text-blue-600">
                                 Sign up
+                            </NavLink>
+                        </div>
+                         <div className="flex justify-between flex-row">
+                            <p className="text-white font-light text-[14px]">
+                                Forgot password?
+                            </p>
+                            <NavLink to="/passwordrequest" className="font-light text-[14px] text-blue-600">
+                                Find
                             </NavLink>
                         </div>
                         <CardFooter><p className="text-[12px] text-gray-500">@2025 Genuine-Ai. All Rights Reserved.</p></CardFooter>
