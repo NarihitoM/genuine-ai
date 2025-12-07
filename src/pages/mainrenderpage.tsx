@@ -4,6 +4,7 @@ import { useState } from "react";
 import { jwtDecode } from "jwt-decode";
 import { type decodedtoken } from "@/components/props/props";
 import BackgroundParticles from "@/components/style/bgparticles";
+
 const Mainrenderpage = () => {
     const [toggle, settoggle] = useState<boolean>();
     const [button, buttontoggle] = useState<boolean>();
@@ -18,7 +19,6 @@ const Mainrenderpage = () => {
             }
             return state;
         });
-
     }
     const logout = () => {
         localStorage.removeItem("token");
@@ -91,10 +91,9 @@ const Mainrenderpage = () => {
                         </div>
                     </div>
                 </header>
-                <main className="h-screen flex-1 mt-auto grow">
+                <main className="h-screen pb-20 grow">
                     <Outlet />
                 </main>
-               
             </div>
         </>
     )

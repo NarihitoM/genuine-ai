@@ -56,7 +56,7 @@ const Humanize = () => {
                setisai(isai);
                setisaimessage(isaimessage);
                setloading(false);
-               
+
             }
          }
          catch (err: any) {
@@ -106,7 +106,7 @@ const Humanize = () => {
                   </div>
                </motion.div>
             }
-            <h1 className="text-white text-3xl text-center font-semibold">
+            <h1 className="text-white text-3xl max-md:text-xl text-center font-semibold">
                Humanize any AI-generated text with one click.{<br></br>}
                Perfect For&nbsp;
                <Typewriter

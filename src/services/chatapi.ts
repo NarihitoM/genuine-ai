@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const Url = "http://localhost:4000";
+const Url = "https://genuine-ai-server.vercel.app";
 
 export async function chatbot(message: string) {
     const response = await axios.post(`${Url}/api/chatmessage`, {

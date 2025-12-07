@@ -105,7 +105,7 @@ const Mainpage = () => {
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: -10 }}
                                 transition={{ duration: 1, ease: "easeOut" }}
-                                className="text-white text-5xl max-md:text-3xl">Humanize Your Text Instantly</motion.h1>
+                                className="text-white text-center text-5xl max-md:text-3xl">Humanize Your Text Instantly</motion.h1>
                             <motion.p
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: -10 }}
@@ -266,7 +266,7 @@ const Mainpage = () => {
                             <br></br>
                             <Observer>
                                 <div className="flex flex-row py-10 max-md:flex-col gap-10">
-                                    <Card className="border-b p-3 w-full bg-black border-white hover:shadow-[0_0_10px_0_white]">
+                                    <Card className="border-b p-3 w-full bg-black max-md:w-[350px] border-white hover:shadow-[0_0_10px_0_white]">
                                         <CardTitle className="text-start">
                                             <h1 className="text-white font-light">Basic</h1>                             </CardTitle>
                                         <CardDescription className="flex flex-col justify-start gap-3 items-start">
@@ -300,7 +300,7 @@ const Mainpage = () => {
                                             </div>
                                         </CardFooter>
                                     </Card>
-                                    <Card className="border-b p-3 w-full bg-black border-white hover:shadow-[0_0_10px_0_white]">
+                                    <Card className="border-b p-3 w-full max-md:w-[350px] bg-black border-white hover:shadow-[0_0_10px_0_white]">
                                         <CardTitle className="text-start">
                                             <h1 className="text-white font-light">Best Pack</h1>
                                         </CardTitle>
