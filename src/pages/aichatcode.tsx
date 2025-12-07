@@ -55,7 +55,7 @@ const Aichatcode = () => {
             }
             <div className="flex justify-center items-center h-screen relative">
                 <div className="flex flex-row max-md:flex-col justify-center items-center gap-10 w-11/12">
-                    <h1 className="text-white text-4xl text-center">Coding Assistance</h1>
+                    <h1 className="text-white text-3xl max-md:text-xl text-center">Coding Assistance</h1>
                     <div className="w-full h-[350px] max-md:h-[250px] border border-white rounded-lg bg-black p-2 flex flex-col items-center gap-3">
                         <textarea style={{ scrollbarWidth: "none" }}
                             className="flex-1 bg-black text-white outline-none w-full resize-none"

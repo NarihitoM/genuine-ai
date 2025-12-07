@@ -119,7 +119,7 @@ const Humanize = () => {
                   delaySpeed={800}
                />
             </h1>
-            <div className="w-11/12 bg-transparent flex flex-col justify-center  p-5 rounded-lg items-center gap-4">
+            <div className="w-full h-[350px] max-md:h-[250px] bg-transparent flex flex-col justify-center  p-5 rounded-lg items-center gap-4">
                <textarea
                   placeholder="Enter Text Or Paste The Message..."
                   value={content}

@@ -4,7 +4,7 @@ const Menu = () => {
     const navigate = useNavigate();
     return (
         <div className="flex flex-col justify-center items-center h-screen gap-5">
-            <h1 className="text-white text-4xl text-center">
+            <h1 className="text-white  text-3xl max-md:text-xl text-center">
                 Welcome To Genuine-Ai Playground.
             </h1>
             <div className="flex flex-col">

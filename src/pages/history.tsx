@@ -71,10 +71,10 @@ const History = () => {
     }
     return (
         <div className="relative flex flex-col justify-center items-center gap-10 h-screen">
-            <h1 className="text-white text-5xl">History</h1>
+            <h1 className="text-white text-3xl max-md:text-xl">History</h1>
             <div className="flex flex-row justify-between gap-10 max-md:flex-col max-md:justify-center">
                 <div className="flex flex-col">
-                    <h1 className="text-white text-3xl">Humanize</h1>
+                    <h1 className="text-white text-3xl max-md:text-xl">Humanize</h1>
                     <div className="overflow-y-auto p-2  h-[400px] w-[400px] max-md:h-[250px] max-md:w-[250px]" style={{ scrollbarWidth: "none" }}>
                         <ol className="list-decimal ml-5">
                             {humanize.map((element) => (
@@ -97,7 +97,7 @@ const History = () => {
                     </div>
                 </div>
                 <div className="flex flex-col">
-                    <h1 className="text-white text-3xl">Chatcode</h1>
+                    <h1 className="text-white text-3xl max-md:text-xl">Chatcode</h1>
                     <div className="overflow-y-auto p-2 h-[400px] w-[400px] max-md:h-[250px] max-md:w-[250px]" style={{ scrollbarWidth: "none" }}>
                         <ol className="list-decimal ml-5">
                             {chatcode.map((element) => (
