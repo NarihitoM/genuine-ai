@@ -99,7 +99,7 @@ const Chat: React.FC<ChatProps> = ({ scrollToSection, sectionRefs }) => {
                             <h2 className="text-white font-semibold">Genuine-AI Chatbot</h2>
                             <button onClick={openmenu} className="text-white text-2xl"><X /></button>
                         </div>
-                        <div className="flex-1 overflow-y-auto mt-2 space-y-2" style={{scrollbarWidth : "none"}}>
+                        <div className="flex-col grow overflow-y-auto mt-2 space-y-2" style={{scrollbarWidth : "none"}}>
                             {message.map((element, index) => (
                                 <div key={index} className={`flex w-full items-center ${element.sender === "user" ? "justify-end" : "justify-start"}`}>
                                     {element.sender === "ai" ? <h1 className="text-white rounded-full animate-spin">⚙️</h1> : ""}
@@ -112,7 +112,7 @@ const Chat: React.FC<ChatProps> = ({ scrollToSection, sectionRefs }) => {
                                 </div>))}
                             <div ref={move} />
                         </div>
-                        <div className="flex mt-3 gap-2">
+                        <div className="flex gap-3">
                             <input
                                 type="text"
                                 value={usermessage}
