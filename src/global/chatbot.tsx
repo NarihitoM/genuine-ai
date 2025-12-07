@@ -94,7 +94,7 @@ const Chat: React.FC<ChatProps> = ({ scrollToSection, sectionRefs }) => {
                 </button>
                 }
                 {toggle &&
-                    <div className="fixed mt-4 bottom-3 right-2 max-md:bottom-3 max-md:right-5 bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-2xl p-4 flex flex-col animate-slide-up">
+                    <div className="fixed mt-4 bottom-3 right-1 max-md:bottom-3 max-md:right-1 bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-2xl p-4 flex flex-col animate-slide-up">
                         <div className="rounded-xl w-80 h-80 max-md:w-full max-md:h-80 flex z-2000 flex-col overflow-hidden">
                             <div className="flex justify-between items-center border-b border-white/10 pb-2">
                                 <h2 className="text-white font-semibold">Genuine-AI Chatbot</h2>
