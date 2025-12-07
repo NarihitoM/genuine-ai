@@ -26,7 +26,7 @@ const Chat: React.FC<ChatProps> = ({ scrollToSection, sectionRefs }) => {
 
     const sendmessage = async () => {
         if (!usermessage)
-        return;
+            return;
         setmessage((prev) => [...prev, { sender: "user", message: usermessage }]);
         setusermessage("");
         setloading(true);
@@ -85,7 +85,7 @@ const Chat: React.FC<ChatProps> = ({ scrollToSection, sectionRefs }) => {
         }
     }
     return (
-        <><Outlet/>
+        <><Outlet />
             <div className="fixed bottom-6 right-6 z-50">
                 {!toggle && <button
                     onClick={openmenu}
@@ -94,40 +94,42 @@ const Chat: React.FC<ChatProps> = ({ scrollToSection, sectionRefs }) => {
                 </button>
                 }
                 {toggle &&
-                    <div className="mt-4 w-80 h-96 bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-2xl p-4 flex flex-col animate-slide-up">
-                        <div className="flex justify-between items-center border-b border-white/10 pb-2">
-                            <h2 className="text-white font-semibold">Genuine-AI Chatbot</h2>
-                            <button onClick={openmenu} className="text-white text-2xl"><X /></button>
-                        </div>
-                        <div className="flex-col grow overflow-y-auto mt-2 space-y-2" style={{scrollbarWidth : "none"}}>
-                            {message.map((element, index) => (
-                                <div key={index} className={`flex w-full items-center ${element.sender === "user" ? "justify-end" : "justify-start"}`}>
-                                    {element.sender === "ai" ? <h1 className="text-white rounded-full animate-spin">⚙️</h1> : ""}
-                                    <div className={`max-w-[75%] px-4 py-2 rounded-lg text-sm ${element.sender === "user" ?
-                                        "bg-white text-black rounded-br-none"
-                                        : "bg-white text-black border rounded-bl-none"
-                                        }`}>
-                                        {element.message}
-                                    </div>
-                                </div>))}
-                            <div ref={move} />
-                        </div>
-                        <div className="flex gap-3">
-                            <input
-                                type="text"
-                                value={usermessage}
-                                onChange={(e) => setusermessage(e.target.value)}
-                                onKeyDown={(e) => {
-                                    if (e.key === "Enter" && !loading) {
-                                        sendmessage();
-                                    }
-                                }}
-                                placeholder="Type a message..."
-                                className="flex-1 px-3 py-2 rounded-xl bg-white/5 border border-white/20 text-white focus:outline-none"
-                            />
-                            <button onClick={sendmessage} className="px-4 py-2 bg-white text-black rounded-xl hover:bg-black hover:text-white transition">
-                                Send
-                            </button>
+                    <div className="mt-4 bottom-3 right-2 max-md:bottom-3 max-md:right-5 bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-2xl p-4 flex flex-col animate-slide-up">
+                        <div className=" rounded-xl w-100 h-126  max-md:h-80 max-md:w-80 flex flex-col overflow-hidden" >
+                            <div className="flex justify-between items-center border-b border-white/10 pb-2">
+                                <h2 className="text-white font-semibold">Genuine-AI Chatbot</h2>
+                                <button onClick={openmenu} className="text-white text-2xl"><X /></button>
+                            </div>
+                            <div className="flex-1 overflow-y-auto py-2 space-y-2" style={{ scrollbarWidth: "none" }}>
+                                {message.map((element, index) => (
+                                    <div key={index} className={`flex w-full items-center ${element.sender === "user" ? "justify-end" : "justify-start"}`}>
+                                        {element.sender === "ai" ? <h1 className="text-white rounded-full animate-spin">⚙️</h1> : ""}
+                                        <div className={`max-w-[75%] px-4 py-2 rounded-lg text-sm ${element.sender === "user" ?
+                                            "bg-white text-black rounded-br-none"
+                                            : "bg-white text-black border rounded-bl-none"
+                                            }`}>
+                                            {element.message}
+                                        </div>
+                                    </div>))}
+                                <div ref={move} />
+                            </div>
+                            <div className="flex gap-2 pt-1">
+                                <input
+                                    type="text"
+                                    value={usermessage}
+                                    onChange={(e) => setusermessage(e.target.value)}
+                                    onKeyDown={(e) => {
+                                        if (e.key === "Enter" && !loading) {
+                                            sendmessage();
+                                        }
+                                    }}
+                                    placeholder="Type a message..."
+                                    className="flex-1 px-3  py-2 rounded-xl bg-white/5 border border-white/20 text-white focus:outline-none"
+                                />
+                                <button onClick={sendmessage} className="px-4 py-2 text-[15px] bg-white text-black rounded-xl hover:bg-black hover:text-white transition">
+                                    Send
+                                </button>
+                            </div>
                         </div>
                     </div>
                 }
