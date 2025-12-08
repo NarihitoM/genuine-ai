@@ -142,7 +142,7 @@ const Mainpage = () => {
                         </div>
                     </section>
 
-                    <section ref={About} className="relative flex justify-center h-screen w-full overflow-hidden pt-20">
+                    <section ref={About} className="relative flex justify-center h-auto w-full overflow-hidden pt-20">
                         <Observer>
                             <h1 className="text-white text-5xl text-center max-md:text-3xl">About Us</h1>
                             <Observer>
@@ -206,7 +206,7 @@ const Mainpage = () => {
                         </Observer>
                     </section>
 
-                    <section ref={Features} className="relative flex justify-center  h-screen w-full overflow-hidden pt-20">
+                    <section ref={Features} className="relative flex justify-center  h-auto w-full overflow-hidden pt-20">
                         <Observer>
                             <h1 className="text-white text-5xl text-center max-md:text-3xl">Features</h1>
                             <br></br>
@@ -260,7 +260,7 @@ const Mainpage = () => {
                             </Observer>
                         </Observer>
                     </section>
-                    <section ref={Pricing} className="relative flex justify-center  h-screen w-full overflow-hidden pt-20">
+                    <section ref={Pricing} className="relative flex justify-center  h-auto w-full overflow-hidden pt-20">
                         <Observer>
                             <h1 className="text-white text-5xl text-center max-md:text-3xl">Pricing</h1>
                             <br></br>
@@ -343,7 +343,7 @@ const Mainpage = () => {
                         </Observer>
                     </section>
                 </main>
-                <footer className="w-full h-screen bg-black border-t border-white/10 p-10 text-white">
+                <footer className="w-full h-auto bg-black border-t border-white/10 p-10 text-white">
                     <Observer>
                         <div className="max-w-6xl mx-auto grid grid-cols-4 max-md:grid-cols-2 max-sm:grid-cols-1 gap-10">
                             <div>
