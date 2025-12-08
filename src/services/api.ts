@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const Url = "https://genuine-ai-db.vercel.app";
+const Url = "http://localhost:3000";
 
 export async function signup(username : string, useremail : string, userpassword : string) {
     const response = await axios.post(`${Url}/api/signup`,{
