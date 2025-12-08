@@ -343,7 +343,7 @@ const Mainpage = () => {
                         </Observer>
                     </section>
                 </main>
-                <footer className="w-full bg-black border-t border-white/10 p-10 text-white">
+                <footer className="w-full h-screen bg-black border-t border-white/10 p-10 text-white">
                     <Observer>
                         <div className="max-w-6xl mx-auto grid grid-cols-4 max-md:grid-cols-2 max-sm:grid-cols-1 gap-10">
                             <div>
