@@ -9,7 +9,7 @@ const confirmemail = () => {
     const useremail = localStorage.getItem("email");
     const [message, setmessaage] = useState<string>("");
     const [code, setcode] = useState<string>();
-   
+
     const navigate = useNavigate();
     const [time, settime] = useState<number>(60);
 
@@ -37,7 +37,7 @@ const confirmemail = () => {
                 const result = await signin(useremail, code);
                 if (result && result.success) {
                     setmessaage(result.message || "Sign up successful");
-                     console.log(result.message);
+                    console.log(result.message);
                     setTimeout(() => {
                         navigate("/login");
                         setmessaage("");
@@ -59,7 +59,7 @@ const confirmemail = () => {
             const result = await resendemail(useremail);
             if (result && result.success) {
                 setmessaage(result.message || "New Verification Code Has Been Sent.");
-               
+
                 setTimeout(() => {
                     setmessaage("");
                 }, 3000);
@@ -92,7 +92,9 @@ const confirmemail = () => {
                             <p className="font-light text-xl">Genuine-Ai</p>
                         </CardTitle>
                         <CardDescription className="flex flex-col gap-5">
-                            <h1>Verification sent to : {useremail}</h1>
+                            <h1>Verification sent to : {useremail}.Check In Spam Folder.</h1>
+                            <p>Please Note That Verification Email Will Take Some Time Due To Not Owning Domain.</p>
+                            <p>Thank You!!</p>
                             <div className="relative">
                                 <input type="text" placeholder="Enter Six Digits Code" className="outline-none border rounded-lg  border-white py-2 px-1 pl-8 pr-8 placeholder:text-white placeholder:font-light text-white w-full" value={code} onChange={(e) => setcode(e.target.value)} />
                                 <i className="absolute left-2 top-3 fa-solid fa-envelope text-white"></i>
