@@ -60,7 +60,7 @@ const Confirmpassword = () => {
     const resend = async () =>
     {
         settime(60);
-
+        setmessaage("Authenticating...");
         try{
         const result = await resendpassword(email);
         if(result && result.success)
@@ -99,7 +99,7 @@ const Confirmpassword = () => {
                                 <input type="text" placeholder="Enter 6 digits code" className="outline-none border rounded-lg  border-white py-2 px-1 pl-8 pr-8 placeholder:text-white placeholder:font-light text-white w-full" value={code} onChange={(e) => setcode(e.target.value)} />
                                 <i className="absolute left-2 top-3 fa-solid fa-key text-white"></i>
                             </div>
-                            {message && <p className={`${message === "Verification Successful" || message === "New Verification Code Has Been Sent."  ? "text-green-600" : "text-red-600"}`}>{message}</p>}
+                            {message && <p className={`${message === "Verification Successful" || message === "New Verification Code Has Been Sent." || message === "Authenticating..."  ? "text-green-600" : "text-red-600"}`}>{message}</p>}
                             <button type="submit" disabled={loading} className="bg-white active:translate-y-1 p-1 rounded-lg text-black">Confirm</button>
                             <button type="button" disabled={time > 0} onClick={resend} className={`${time > 0 ? "bg-black text-white" : "bg-white text-black"} active:translate-y-1 p-1 rounded-lg`}>{time === 0 ? "Send" : time + "s"}</button>
                         </CardDescription>

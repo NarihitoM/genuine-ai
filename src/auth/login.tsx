@@ -91,7 +91,7 @@ const Login = () => {
                                 <input type={bool ? "password" : "text"} placeholder="Enter Password" className="outline-none border rounded-lg w-full border-white py-2 px-1 pl-8 pr-8 placeholder:text-white placeholder:font-light text-white" value={password} onChange={(e) => setpassword(e.target.value)} />
                                 <i onClick={eyetoggle} className={`absolute right-2 top-3 fa-solid  ${bool ? "fa-eye-slash" : "fa-eye"}`}></i>
                             </div>
-                            {message && <p className={`${message === "Log in successful" ? "text-green-600" : "text-red-600"}`}>{message}</p>}
+                            {message && <p className={`${message === "Log in successful" || message === "Authenticating..." ? "text-green-600" : "text-red-600"}`}>{message}</p>}
                             <button className="bg-white active:translate-y-1 p-1 rounded-lg text-black">Login</button>
                             <NavLink to="/" className="text-center active:translate-y-1 text-[14px] text-black p-1 rounded-lg bg-white">
                                 Back

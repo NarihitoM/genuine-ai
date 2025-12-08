@@ -71,7 +71,7 @@ const Forgot = () => {
                 <input type="text" placeholder="Find Email" className="outline-none border rounded-lg  border-white py-2 px-1 pl-8 pr-8 placeholder:text-white placeholder:font-light text-white w-full" value={email} onChange={(e) => setemail(e.target.value)} />
                 <i className="absolute left-2 top-3 fa-solid fa-envelope text-white"></i>
               </div>
-              {message && <p className={`${message === "Password verification email has been sent." ? "text-green-600" : "text-red-600"}`}>{message}</p>}
+              {message && <p className={`${message === "Password verification email has been sent." || message === "Authenticating..." ? "text-green-600" : "text-red-600"}`}>{message}</p>}
               <button type="submit" disabled={loading} className="bg-white active:translate-y-1 p-1 rounded-lg text-black">Find</button>
             </CardDescription>
             <NavLink to="/playground" onClick={() => navigate("/")} className="text-center active:translate-y-1 font-semi text-[14px] text-black p-2 rounded-lg bg-white">

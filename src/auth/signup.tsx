@@ -144,7 +144,7 @@ const Signup = () => {
                                 <input type={bool1 ? "password" : "text"} placeholder="Enter Confirm Password" className="outline-none border rounded-lg w-full border-white py-2 px-1 pl-8 pr-8 placeholder:text-white placeholder:font-light text-white" value={confirmpassword} onChange={(e) => setconfirmpasword(e.target.value)} />
                                 <i onClick={eyetoggle1} className={`absolute right-2 top-3 fa-solid  ${bool1 ? "fa-eye-slash" : "fa-eye"}`}></i>
                             </div>
-                            {message && <p className={`${message === "Sign Up Successful" ? "text-green-600" : "text-red-600"}`}>{message}</p>}
+                            {message && <p className={`${message === "Sign Up Successful" || message === "Authenticating..." ? "text-green-600" : "text-red-600"}`}>{message}</p>}
                             <button type="submit" disabled={loading} className="bg-white p-1 rounded-lg active:translate-y-1 text-black">Sign Up</button>
                             <NavLink to="/" className="active:translate-y-1 text-center text-[14px] text-black p-1 rounded-lg bg-white">
                                 Back

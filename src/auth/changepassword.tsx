@@ -55,6 +55,7 @@ const Changepassword = () => {
             setTimeout(() => {
                 setloading(false);
             }, 3000);
+            setmessaage("Authenticating...");
             try {
                 const result = await newpasswordchange(email, password);
                 if (result && result.success) {
@@ -102,7 +103,7 @@ const Changepassword = () => {
                                 <input type={bool1 ? "password" : "text"} placeholder="Enter Confirm Password" className="outline-none border rounded-lg w-full border-white py-2 px-1 pl-8 pr-8 placeholder:text-white placeholder:font-light text-white" value={confirmpassword} onChange={(e) => setconfirmpasword(e.target.value)} />
                                 <i onClick={eyetoggle1} className={`absolute right-2 top-3 fa-solid  ${bool1 ? "fa-eye-slash" : "fa-eye"}`}></i>
                             </div>
-                            {message && <p className={`${message === "Password change successful" ? "text-green-600" : "text-red-600"}`}>{message}</p>}
+                            {message && <p className={`${message === "Password change successful" || message === "Authenticating..." ? "text-green-600" : "text-red-600"}`}>{message}</p>}
                             <button type="submit" disabled={loading} className="bg-white active:translate-y-1 p-1 rounded-lg text-black">Confirm</button>
                         </CardDescription>
                         <NavLink to="/playground" onClick={() => { navigate("/login"); localStorage.removeItem("pwemail") }} className="text-center active:translate-y-1 font-semi text-[14px] text-black p-2 rounded-lg bg-white">

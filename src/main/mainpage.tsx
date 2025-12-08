@@ -142,7 +142,7 @@ const Mainpage = () => {
                         </div>
                     </section>
 
-                    <section ref={About} className="relative flex justify-center h-auto w-full overflow-hidden pt-20">
+                    <section ref={About} className="relative flex justify-center h-screen w-full overflow-hidden pt-20">
                         <Observer>
                             <h1 className="text-white text-5xl text-center max-md:text-3xl">About Us</h1>
                             <Observer>
@@ -206,7 +206,7 @@ const Mainpage = () => {
                         </Observer>
                     </section>
 
-                    <section ref={Features} className="relative flex justify-center h-auto w-full overflow-hidden pt-20">
+                    <section ref={Features} className="relative flex justify-center  h-screen w-full overflow-hidden pt-20">
                         <Observer>
                             <h1 className="text-white text-5xl text-center max-md:text-3xl">Features</h1>
                             <br></br>
@@ -260,7 +260,7 @@ const Mainpage = () => {
                             </Observer>
                         </Observer>
                     </section>
-                    <section ref={Pricing} className="relative flex justify-center h-auto w-full overflow-hidden pt-20">
+                    <section ref={Pricing} className="relative flex justify-center  h-screen w-full overflow-hidden pt-20">
                         <Observer>
                             <h1 className="text-white text-5xl text-center max-md:text-3xl">Pricing</h1>
                             <br></br>
