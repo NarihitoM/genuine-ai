@@ -42,6 +42,19 @@ export async function newpasswordchange(email : string | null, password : string
     return response.data;
 }
 
+export async function resendemail(email : string | null) {
+    const response = await axios.post(`${Url}/api/resend`,{
+        email : email,
+    });
+    return response.data;
+}
+
+export async function resendpassword(email : string | null) {
+    const response = await axios.post(`${Url}/api/resendpassword`,{
+        email : email,
+    });
+    return response.data;
+}
 
 export async function login(useremail : string, userpassword : string) {
     const response = await axios.post(`${Url}/api/login`,{
