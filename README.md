@@ -1,2 +1,2 @@
 # Genuine Ai 
-Your Free Ai Humanizer And Code Generator.
+Your Free Ai Humanizer And Code Assistant.
